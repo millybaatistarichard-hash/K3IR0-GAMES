@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>K3IR0 GAMES</title>
+<meta name="description" content="K3IR0 GAMES — jogos grátis para jogar no navegador.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="index.html"><span>K3IR0</span><small>GAMES</small></a>
+  <nav>
+    <a href="#jogos">Jogos</a>
+    <a href="#categorias">Categorias</a>
+    <a href="#sobre">Sobre</a>
+  </nav>
+  <button class="menu-btn" aria-label="Abrir menu">☰</button>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">🍪 K3IR0 GAMES</p>
+    <h1>JOGUE.<br><span>DESCUBRA.</span><br>SE DIVIRTA.</h1>
+    <p class="hero-text">Um lugar para reunir jogos que rodam direto no navegador.</p>
+    <a class="primary-btn" href="#jogos">VER JOGOS ↓</a>
+  </div>
+  <div class="hero-cookie">🍪</div>
+</section>
+
+<section class="toolbar" id="jogos">
+  <div>
+    <p class="section-kicker">CATÁLOGO</p>
+    <h2>Todos os jogos</h2>
+  </div>
+  <div class="controls">
+    <input id="search" type="search" placeholder="🔎 Procurar jogo..." aria-label="Procurar jogo">
+    <select id="category" aria-label="Filtrar categoria">
+      <option value="Todos">Todas as categorias</option>
+    </select>
+  </div>
+</section>
+
+<section class="game-grid" id="gameGrid"></section>
+<div class="empty" id="empty" hidden>Nenhum jogo encontrado.</div>
+
+<section class="categories" id="categorias">
+  <p class="section-kicker">EXPLORE</p>
+  <h2>Categorias</h2>
+  <div class="category-grid" id="categoryGrid"></div>
+</section>
+
+<section class="about" id="sobre">
+  <div>
+    <p class="section-kicker">SOBRE O SITE</p>
+    <h2>Feito para jogar.</h2>
+  </div>
+  <p>O K3IR0 GAMES é um portal pessoal para reunir jogos compatíveis com navegador. Você pode adicionar seus próprios jogos e organizar tudo por categoria.</p>
+</section>
+</main>
+
+<footer>
+  <div class="logo"><span>K3IR0</span><small>GAMES</small></div>
+  <p>Se inscreva pra ganhar um cookie 🍪</p>
+  <small>© 2026 K3IR0 GAMES</small>
+</footer>
+
+<script src="games.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

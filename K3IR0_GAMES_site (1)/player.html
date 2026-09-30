@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>K3IR0 GAMES — Jogando</title><link rel="stylesheet" href="style.css">
+<style>
+.player-page{min-height:100vh}.player-head{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.back{background:#151515;border:1px solid var(--line);padding:10px 15px;border-radius:8px;font-weight:700;font-size:12px}.stage{padding:30px 5%}.game-info{margin-bottom:18px}.game-info h1{font-size:28px}.game-info p{color:#888;margin-top:6px}.frame-wrap{background:#000;border:1px solid #292929;border-radius:14px;overflow:hidden;box-shadow:0 20px 80px #000}.frame-wrap iframe{display:block;width:100%;height:min(72vh,760px);border:0;background:#000}.tools{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.tools button{background:#151515;color:white;border:1px solid var(--line);padding:9px 12px;border-radius:7px;cursor:pointer}
+</style></head>
+<body class="player-page">
+<header class="player-head"><a class="logo" href="index.html"><span>K3IR0</span><small>GAMES</small></a><a class="back" href="index.html">← VOLTAR</a></header>
+<main class="stage"><div class="game-info"><h1 id="title">Carregando...</h1><p id="desc"></p></div><div class="frame-wrap"><iframe id="gameFrame" allow="fullscreen; gamepad; autoplay"></iframe></div><div class="tools"><button id="fullscreen">⛶ Tela cheia</button></div></main>
+<script src="games.js"></script><script>
+const id=new URLSearchParams(location.search).get("id");const g=games.find(x=>x.id===id);
+if(!g){document.getElementById("title").textContent="Jogo não encontrado";document.getElementById("desc").textContent="Confira o catálogo e tente novamente."}
+else{document.title="K3IR0 GAMES — "+g.title;document.getElementById("title").textContent=g.title;document.getElementById("desc").textContent=g.description;document.getElementById("gameFrame").src=g.url}
+document.getElementById("fullscreen").onclick=()=>document.getElementById("gameFrame").requestFullscreen?.();
+</script></body></html>

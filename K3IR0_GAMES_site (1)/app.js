@@ -1,0 +1,8 @@
+const grid=document.getElementById("gameGrid"),empty=document.getElementById("empty"),search=document.getElementById("search"),category=document.getElementById("category"),categoryGrid=document.getElementById("categoryGrid");
+const cats=[...new Set(games.map(g=>g.category))];
+cats.forEach(c=>category.insertAdjacentHTML("beforeend",`<option value="${esc(c)}">${esc(c)}</option>`));
+categoryGrid.innerHTML=cats.length?cats.map(c=>`<div class="category" data-category="${esc(c)}"><strong>${esc(c)}</strong><span>${games.filter(g=>g.category===c).length} jogo(s)</span></div>`).join(""):`<div class="category"><strong>Adicione categorias</strong><span>Elas aparecerão aqui automaticamente.</span></div>`;
+categoryGrid.querySelectorAll(".category").forEach(x=>x.onclick=()=>{category.value=x.dataset.category;render()});
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function render(){let q=search.value.toLowerCase().trim(),c=category.value;let list=games.filter(g=>(c==="Todos"||g.category===c)&&(`${g.title} ${g.description} ${g.category}`.toLowerCase().includes(q)));grid.innerHTML=list.map(g=>`<article class="game-card"><div class="cover">${g.cover?`<img src="${esc(g.cover)}" alt="">`:`<span>${esc(g.icon||"🎮")}</span>`}<span class="badge">${esc(g.badge||g.category)}</span></div><div class="card-body"><h3>${esc(g.title)}</h3><p>${esc(g.description)}</p><div class="card-bottom"><span class="tag">${esc(g.category)}</span><a class="play" href="player.html?id=${encodeURIComponent(g.id)}">JOGAR</a></div></div></article>`).join("");empty.hidden=list.length>0}
+search.addEventListener("input",render);category.addEventListener("change",render);render();
